@@ -8,7 +8,7 @@ from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 
 def get_db_connection():
     conn = pyodbc.connect(
-        'Driver={ODBC Driver 18 for SQL Server};Server=tcp:prodserversharpcoding.database.windows.net,1433;Database=proddbsharpcoding;Uid=azureadmin;Pwd=.PlicoDiCarta101;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;'
+        'Driver={ODBC Driver 18 for SQL Server};Server=tcp:test.database.windows.net,1433;Database=proddbsharpcoding;Uid=test;Pwd=test;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;'
     )
     return conn
 
@@ -49,7 +49,7 @@ def user_list():
 @app.route('/upload', methods=['POST'])
 def upload_file():
     # Azure Storage account connection string
-    connect_str = "DefaultEndpointsProtocol=https;AccountName=prodstoragesharpcoding;AccountKey=xTIJq3ZOi9N9bDuXPOI0AxicFM1ArbAze6lbEhcd4Z58r9OFUawJRzIb5s8G2+jfAWSWUsM4U3rD+AStmiF51g==;EndpointSuffix=core.windows.net"
+    connect_str = "DefaultEndpointsProtocol=https;AccountName=test;AccountKey=test==;EndpointSuffix=core.windows.net"
     container_name = "sharpcodingcontainer"
 
     eicar_file_content = (
