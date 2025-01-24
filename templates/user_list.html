@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .user-list-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .user-list-container h1 {
+            margin-bottom: 20px;
+        }
+        .user-list-container form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .user-list-container input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+        }
+        .user-list-container button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .user-list-container button:hover {
+            background-color: #0056b3;
+        }
+        .user-list-container table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .user-list-container table, th, td {
+            border: 1px solid #ccc;
+        }
+        .user-list-container th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-list-container">
+        <h1>User List</h1>
+        <form method="get" action="/users">
+            <input type="text" name="search" placeholder="Search by name or surname" aria-placeholder="Search User">
+            <button type="submit">Search</button>
+        </form>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.surname }}</td>
+                <td>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                            <input type="file" name="file" required>
+                            <button type="submit">Upload File</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
