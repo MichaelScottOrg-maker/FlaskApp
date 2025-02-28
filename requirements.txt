@@ -1,4 +1,4 @@
 flask==2.2.2
 Werkzeug==2.3.7
-azure-storage-blob==12.8.1
+azure-storage-blob==12.13.0
 pyodbc
